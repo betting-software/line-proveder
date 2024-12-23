@@ -10,22 +10,18 @@ class Status(Enum):
 
 
 class BaseEvent(BaseModel):
-    id: int
     name: str
     coefficient: float
     timestamp: int
-
-
-class PendingEvent(BaseEvent):
-    pass
+    status: Status 
 
 
 class Event(BaseEvent):
-    status: Status
+    id: int
 
 
 class AddEventsRequest(BaseModel):
-    events: list[Event] | Event
+    events: list[BaseEvent] | BaseEvent
 
 
 class UpdateEventRequest(BaseModel):
@@ -34,4 +30,4 @@ class UpdateEventRequest(BaseModel):
 
 
 class EventsResponse(BaseModel):
-    events: list[PendingEvent]
+    events: list[Event]

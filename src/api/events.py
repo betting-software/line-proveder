@@ -1,4 +1,5 @@
 from typing import Annotated
+from asyncio import gather
 
 from fastapi import APIRouter, Depends
 
@@ -29,4 +30,7 @@ async def update_events(
     request: events.UpdateEventRequest,
     manager: Annotated[ServiceManager, Depends(get_service_manager)]
 ) -> None:
-    await manager.events.update_event(request)
+    await gather(
+        manager.bet_maker.update_bets(request), 
+        manager.events.update_event(request)
+    )
