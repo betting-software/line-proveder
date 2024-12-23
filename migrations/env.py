@@ -9,7 +9,7 @@ from alembic import context
 
 from src.db.core import Base
 from src.config import db_config
-from src.db.model import Events
+from src.db.model import Events # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

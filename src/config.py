@@ -18,7 +18,7 @@ class DBConfig(Config):
 
     @property
     def database_url(self):
-        return f"postgresql+asyncpg://{self.db_username}:{self.db_password}@{self.db_host}:{self.db_port}/{self.db_name}"
+        return f"postgresql+asyncpg://{self.db_username}:{self.db_password}@{self.db_host}:{self.db_port}/{self.db_name}" # noqa
 
 
 class BetMakerConfig(Config):
