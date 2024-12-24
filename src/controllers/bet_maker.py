@@ -12,4 +12,4 @@ class BetMakerController:
         url = f"{self._bet_maker_url}/v1/bets/update_bet"
         data = {"id": request.id, "status": request.status.value}
         async with aiohttp.ClientSession() as session:
-            await session.post(url, json=data)
+            await session.put(url, json=data)

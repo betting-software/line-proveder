@@ -21,7 +21,7 @@ async def get_events(
 async def get_event(
     id_event: int,
     manager: Annotated[ServiceManager, Depends(get_service_manager)]
-) -> events.EventsResponse:
+) -> events.Event:
     event = await manager.line_provider.get_event(id_event)
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")

@@ -4,10 +4,19 @@ services:
     build: 
       context: .
     ports:
-      - "9000:8000"
+      - "9055:8000"
     env_file:
       - ./config/conf.env
     volumes:
       - .:/app
     container_name: line-provider
     command: /bin/bash -c "alembic upgrade head && uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload"
+    networks:
+      - events
+      - shared
+
+networks:
+  events:
+    external: true
+  shared:
+    external: true

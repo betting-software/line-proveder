@@ -8,4 +8,10 @@ services:
     volumes:
       - .:/app
     ports:
-      - "5432:5432"
+      - "5435:5432"
+    networks:
+      - events
+
+networks:
+  events:
+    external: true
