@@ -13,7 +13,7 @@ class BaseEvent(BaseModel):
     name: str
     coefficient: float
     timestamp: int
-    status: Status 
+    status: Status
 
 
 class Event(BaseEvent):

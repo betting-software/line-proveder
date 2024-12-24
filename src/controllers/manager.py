@@ -1,13 +1,13 @@
-from src.controllers.events import EventsController
+from src.controllers.line_provider import LineProviderController
 from src.controllers.bet_maker import BetMakerController
 
 
 class ServiceManager(object):
-    events: EventsController
+    line_provider: LineProviderController
     bet_maker: BetMakerController
 
     def __init__(self):
-        self.events = EventsController()
+        self.line_provider = LineProviderController()
         self.bet_maker = BetMakerController()
 
 
